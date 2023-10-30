@@ -20,20 +20,15 @@
                     <img :src="slides[imgIndex].image" :alt="slides[imgIndex].title" />
                     <div class="text">
                         <h3>{{ slides[imgIndex].title }}</h3>
-                        <p>
-                            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Et temporibus voluptatum suscipit
-                            tempore aliquid deleniti aut
-                            veniam inventore eligendi ex ad ullam, cumque provident totam omnis, magnam dolores dolorum
-                            corporis.
-                        </p>
+                        <p>{{ slides[imgIndex].text }}</p>
                     </div>
                 </div>
 
                 <div class="thumbs">
                     <div class="prev" @click="prevImage()"></div>
                     <div class="next" @click="nextImage()"></div>
-                    <div class="thumb" v-for="(slide,index) in slides">
-                        <img :src="slide.image" :alt="slide.title" />
+                    <div class="thumb" @click="thumbClick(index)" v-for="(slide,index) in slides" :class="thumbBorder(index)">
+                        <img :src="slide.image" :alt="slide.title"/>
                     </div>
                     <!-- <div class="thumb">
                         <img src="img/02.webp" alt="Ratchet & Clank" />

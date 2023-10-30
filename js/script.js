@@ -46,5 +46,16 @@ createApp({
                 this.imgIndex = this.slides.length - 1;
             }
         },
+        thumbBorder(index){
+            if(index === this.imgIndex) {
+                return "active";
+            }
+        },
+        thumbClick(index){
+            this.imgIndex = index;
+        },
+    },
+    mounted() {
+        switchImage = setInterval(this.nextImage, 2500);
     },
 }).mount("#app");
