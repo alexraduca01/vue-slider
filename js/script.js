@@ -54,8 +54,14 @@ createApp({
         thumbClick(index){
             this.imgIndex = index;
         },
+        startAutoplay(){
+            switchImage = setInterval(this.nextImage, 2500);
+        },
+        stopAutoplay(){
+            clearInterval(switchImage);
+        },
     },
     mounted() {
-        switchImage = setInterval(this.nextImage, 2500);
+        this.startAutoplay();
     },
 }).mount("#app");
